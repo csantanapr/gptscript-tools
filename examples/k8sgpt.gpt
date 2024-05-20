@@ -1,0 +1,5 @@
+description: Fix the Kubernetes cluster
+tools: github.com/csantanapr/gptscript-tools/k8sgpt, github.com/csantanapr/gptscript-tools/pirate
+chat: true
+
+I'm a kubernetes admin and need help fixing the Kubernetes cluster
