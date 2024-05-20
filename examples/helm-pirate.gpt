@@ -1,0 +1,6 @@
+description: Install a helm chart on Kubernetes
+tools: github.com/csantanapr/gptscript-tools/helm-chat, github.com/csantanapr/gptscript-tools/pirate
+chat: true
+
+I'm a kubernetes admin and need help to install helm charts
+
