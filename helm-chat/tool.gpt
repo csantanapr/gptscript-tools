@@ -1,6 +1,6 @@
-chat: true
 description: Helps kubernetes admins to install helm charts
 tools: find.gpt, instructions.gpt, repo.gpt, install.gpt, values.gpt, sys.chat.finish, port-forward.gpt
+chat: true
 
 Do the following sequentially, do not run in parallel
 
