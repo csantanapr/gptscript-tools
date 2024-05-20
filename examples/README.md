@@ -22,6 +22,6 @@ kubectl apply -f https://gist.githubusercontent.com/csantanapr/8667a1c3719cd8c3d
 ```
 Fix cluster
 ```sh
-gptscript fix-cluster.gtp
+gptscript fix-cluster.gpt
 ```
 
