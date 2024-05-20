@@ -1,0 +1,11 @@
+name: kubectl-port-forward
+tools: sys.exec?
+description: Runs the kubectl port-forward command to test usign port forward a service in Kubernetes
+args: svc: the name of the service
+args: namespace: the namespace where the pod is, if not specified use default
+args: local_port: the local port number, if not specify use 8080
+args: port_number: the port number on the app, if not specify use port 80
+
+#!/usr/bin/env bash
+
+kubectl port-forward -n $namespace svc/$svc $local_port:$port_number &
