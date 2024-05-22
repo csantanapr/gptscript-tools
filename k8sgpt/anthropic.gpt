@@ -1,0 +1,3 @@
+description: A Kubernetes admin assistant
+tools: sys.exec?, github.com/gptscript-ai/browser-search/google, sys.chat.finish, sys.workspace.read, sys.workspace.write, sys.getenv, sys.read, sys.write
+chat: true
