@@ -1,0 +1,6 @@
+Name: Amazon Bedrock Converse API Provider
+Description: Model provider for Amazon Bedrock hosted models using Converse API
+Model Provider: true
+credential: github.com/csantanapr/gptscript-tools/amzon-bedrock-provider
+
+#!sys.daemon /usr/bin/env python3 ${GPTSCRIPT_TOOL_DIR}/main.py

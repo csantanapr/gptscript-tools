@@ -1,0 +1,74 @@
+models:
+  - name: Claude 3 Sonnet
+    provider: Anthropic
+    id: anthropic.claude-3-sonnet-20240229-v1:0
+    convers: true
+    converse-stream: true
+    tool-use: true
+    tool-streaming: true
+    version: "1.0"
+  - name: Claude 3 Haiku
+    provider: Anthropic
+    id: anthropic.claude-3-haiku-20240307-v1:0
+    convers: true
+    converse-stream: true
+    streaming: true
+    tool-use: true
+    tool-streaming: true
+    version: "1.0"
+  - name: Claude 3 Opus
+    provider: Anthropic
+    id: anthropic.claude-3-opus-20240229-v1:0
+    convers: true
+    converse-stream: true
+    tool-use: true
+    tool-streaming: true
+    version: "1.0"
+  - name: Command R
+    provider: Cohere
+    id: cohere.command-r-v1:0
+    convers: true
+    converse-stream: true
+    tool-use: true
+    tool-streaming: false
+    version: "1.x"
+  - name: Command R+
+    provider: Cohere
+    id: cohere.command-r-plus-v1:0
+    convers: true
+    converse-stream: true
+    tool-use: true
+    tool-streaming: false
+    version: "1.x"
+  - name: Mistral Large
+    provider: Mistral AI
+    id: mistral.mistral-large-2402-v1:0
+    convers: true
+    converse-stream: true
+    tool-use: true
+    tool-streaming: false
+    version: "1.x"
+  - name: Mistral Large
+    provider: Mistral AI
+    id: mistral.mistral-small-2402-v1:0
+    convers: true
+    converse-stream: true
+    tool-use: true
+    tool-streaming: false
+    version: "1.x"
+  - name: Llama 3 8b Instruct
+    provider: Meta
+    id: meta.llama3-8b-instruct-v1:0
+    convers: true
+    converse-stream: true
+    tool-use: true
+    tool-streaming: false
+    version: "1.x"
+  - name: Llama 3 70b Instruct
+    provider: Meta
+    id: meta.llama3-70b-instruct-v1:0
+    convers: true
+    converse-stream: true
+    tool-use: true
+    tool-streaming: false
+    version: "1.x"
