@@ -56,7 +56,7 @@ async def log_body(request: Request, call_next):
     response_body = b""
     async for chunk in response.body_iterator:
         # parse chunk replace the string "index":-1 with "index":0
-        chunk = chunk.replace(b'"index":-1', b'"index":0')
+        # chunk = chunk.replace(b'"index":-1', b'"index":0')
         response_body += chunk
     print(f"Response body: {response_body.decode()}")
 
