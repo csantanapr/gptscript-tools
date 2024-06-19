@@ -1,0 +1,33 @@
+{
+    "id": "chatcmpl-ba69d89f",
+    "object": "chat.completion",
+    "created": 1718826296,
+    "model": "anthropic.claude-3-sonnet-20240229-v1:0",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "tooluse_sOizeAplSFWPYoh6dW1xXg",
+              "type": "function",
+              "function": {
+                "name": "myfunction",
+                "arguments": "{\"number\": \"3\"}"
+              }
+            }
+          ]
+        },
+        "logprobs": null,
+        "finish_reason": "tool_calls"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 319,
+      "completion_tokens": 52,
+      "total_tokens": 371
+    },
+    "system_fingerprint": "fp"
+  }

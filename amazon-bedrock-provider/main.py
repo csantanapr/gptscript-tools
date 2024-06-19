@@ -1,16 +1,16 @@
-import json
 import os
-import yaml
+import json
+import api
+
+from fastapi import Request, Response
+
 from pygments import highlight
 from pygments.lexers import JsonLexer
 from pygments.formatters import TerminalFormatter
 
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse, StreamingResponse
-
 debug: bool = os.environ.get("GPTSCRIPT_DEBUG", "false") == "true"
-app = FastAPI()
 
+app = api.app
 
 def log(*args):
     if debug:
@@ -20,57 +20,56 @@ def log(*args):
             colored_json = highlight(json_str, JsonLexer(), TerminalFormatter())
             print(colored_json)
 
+def transform_input(body: bytes) -> bytes:
+    data = json.loads(body)
+    messages = data.get("messages", [])
+    if len(messages) > 0:
+        """
+        check all messages role with messages[i].get("role")
+        If there is no messages with role append {"role": "user", "content": "."}
+        """
+        for i in range(len(messages)):
+            if messages[i].get("role") == "user":
+                break
+        else:
+            messages.append({"role": "user", "content": "."})
+
+
+    data["messages"] = messages
+    #data["stream"] = False
+    return json.dumps(data).encode("utf-8")
 
 @app.middleware("http")
 async def log_body(request: Request, call_next):
     body = await request.body()
     log("HTTP REQUEST BODY: ", body)
-    return await call_next(request)
+    # if request.scope type is http, method POST, and path `/v1/chat/completions` then call function transform_input
+    if request.scope.get("type") == "http" and request.scope.get("method") == "POST" and request.scope.get("path") == "/v1/chat/completions":
+        request._body = transform_input(body)
+    log("HTTP REQUEST BODY TRANSFORM: ", await request.body())
 
 
-@app.post("/")
-async def post_root():
-    return 'ok'
+    # Call the next middleware or route handler
+    response = await call_next(request)
+
+    # Log the response body
+    response_body = b""
+    async for chunk in response.body_iterator:
+        # parse chunk replace the string "index":-1 with "index":0
+        chunk = chunk.replace(b'"index":-1', b'"index":0')
+        response_body += chunk
+    print(f"Response body: {response_body.decode()}")
+
+    # Return the modified response
+    return Response(response_body,
+                    status_code=response.status_code,
+                    headers=dict(response.headers),
+                    media_type=response.media_type)
 
 
-@app.get("/")
-async def get_root():
-    return 'ok'
 
 
-@app.get("/v1/models")
-async def list_models() -> JSONResponse:
-# read the file models.yaml and return the list of model ids
-    with open('models.yaml', 'r') as f:
-        data = yaml.safe_load(f)
-        # cast the values to str
-        models = [{"id": str(item["id"]), "name": str(item["name"])} for item in data["models"]]
-        models2 = [{"id": "anthropi.claude-3-haiku-20240307-v1:0", "name":"Claude 3 Haiku"}]
 
-    # pretty print json models
-    print(json.dumps(models, indent=2))
-    return JSONResponse(content={"data": models})
-
-
-@app.post("/v1/chat/completions")
-async def completions(request: Request) -> StreamingResponse:
-    data = await request.body()
-    input = json.loads(data)
-    # append to input.model the string ":0"
-    input["model"] += ":0"
-    emulate = {
-        "role": "assistant",
-        "content": [
-      {
-        "text": "Hello, world!"
-      }
-    ]
-    }
-    # print emulate as json
-    print(json.dumps(emulate, indent=2))
-    resp = "data: " + json.dumps(emulate) + "\n\n"
-    print(resp)
-    return StreamingResponse(resp, media_type="application/x-ndjson")
 
 
 if __name__ == "__main__":

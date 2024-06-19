@@ -1,3 +1,3 @@
-fastapi
 boto3
-pygments
+git+https://github.com/csantanapr/bedrock-access-gateway@gptscript-provider#egg=api&subdirectory=src
+uvicorn
