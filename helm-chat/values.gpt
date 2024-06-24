@@ -1,5 +1,5 @@
 description: Generates the values.yaml
-tools: sys.workspace.read, sys.workspace.write, sys.exec?, sys.chat.finish
+tools: sys.read, sys.write, sys.exec, sys.chat.finish
 chat: true
 
 Do the following sequentially, not in parallel

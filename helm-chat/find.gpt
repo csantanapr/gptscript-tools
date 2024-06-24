@@ -1,6 +1,6 @@
 name: Find Helm Chart
 description: Determines the helm chart to install
-tools: github.com/gptscript-ai/browser, github.com/gptscript-ai/browser-search/google, sys.chat.finish, sys.workspace.write
+tools: github.com/gptscript-ai/browser-search/google, sys.chat.finish, sys.write
 chat: true
 
 Do the following steps

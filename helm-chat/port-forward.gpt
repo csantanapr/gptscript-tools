@@ -1,5 +1,5 @@
 name: kubectl-port-forward
-tools: sys.exec?
+tools: sys.exec
 description: Runs the kubectl port-forward command to test usign port forward a service in Kubernetes
 args: svc: the name of the service
 args: namespace: the namespace where the pod is, if not specified use default

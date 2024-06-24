@@ -1,5 +1,5 @@
 description: Sets up helm repo
-tools: sys.workspace.read, sys.exec?
+tools: sys.read, sys.exec
 
 
 1. Read the workspace file chart.json to get the helm info

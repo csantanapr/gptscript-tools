@@ -1,5 +1,5 @@
 description: Generates installation instructions to install the chart
-tools: sys.workspace.read, sys.workspace.write, github.com/gptscript-ai/browser, github.com/gptscript-ai/browser-search/google
+tools: sys.read, sys.write, github.com/gptscript-ai/browser, github.com/gptscript-ai/browser-search/google
 
 1. Read chart.json from the workspace. This file has the chart we wish to install.
 2. Search on google for instructions on how to install this chart. Follow any relevant links to read the whole text.
