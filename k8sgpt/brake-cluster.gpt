@@ -1,6 +1,6 @@
-description: Brake a Kubernetes Cluster
-chat: true
-tools: sys.exec, sys.chat.finish
+Description: Brake a Kubernetes Cluster
+Chat: true
+Tools: sys.exec, sys.chat.finish
 
 Do the following sequentially, do not run in parallel
 

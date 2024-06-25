@@ -1,6 +1,6 @@
-description: A Kubernetes Admin assistant
-tools: sys.exec, sys.write, sys.read, github.com/gptscript-ai/browser-search/google, sys.chat.finish
-chat: true
+Description: A Kubernetes Admin assistant
+Tools: sys.exec, sys.write, sys.read, github.com/gptscript-ai/browser-search/google, sys.chat.finish
+Chat: true
 
 Do the following sequentially, do not run in parallel
 
