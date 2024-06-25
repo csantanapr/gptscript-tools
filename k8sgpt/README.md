@@ -1,21 +1,11 @@
-## Fix a kind cluster
+## Fix a Kubernetes Cluster
 
-Create cluster
+You can create a cluster with `kind` or `eksdemo`
+
+Create a kind cluster:
 ```shell
 kind create cluster
 ```
-
-Brake cluster
-```shell
-kubectl apply -f https://gist.githubusercontent.com/csantanapr/8667a1c3719cd8c3d89f1e6d2e9b36be/raw/a24d9b2a01e9682362e725377fb1b8fc7a36cfa1/deploy.yaml
-```
-
-Fix cluster (like a pirate)
-```shell
-gptscript fix-cluster.gtp
-```
-
-## Fix an EKS cluster
 
 Create an EKS cluster named `blue`
 ```shell
@@ -24,12 +14,12 @@ eksdemo create cluster blue
 
 Brake cluster
 ```shell
-kubectl apply -f https://gist.githubusercontent.com/csantanapr/8667a1c3719cd8c3d89f1e6d2e9b36be/raw/a24d9b2a01e9682362e725377fb1b8fc7a36cfa1/deploy.yaml
+kubectl apply -f brake-cluster.gpt
 ```
 
-Fix the cluster
+Fix cluster (like a pirate)
 ```shell
-gptscript github.com/csantanapr/gptscript-tools/k8sgpt
+gptscript fix-cluster.gtp
 ```
 
 ## Fix an EKS Cluster using Anthropic
@@ -54,8 +44,10 @@ For more info check [here](https://github.com/gptscript-ai/claude3-provider-comm
 
 Set an alias setting the default-model for example:
 ```shell
-alias gptscript='gptscript --default-model="claude-3-5-sonnet-20240620 from github.com/gptscript-ai/anthropic-provider"'
+alias ai='../../gptscript/bin/gptscript --default-model="claude-3-5-sonnet-20240620 from github.com/gptscript-ai/anthropic-provider"'
 ```
 
-
-
+Run it
+```shell
+ai --workspace $PWD/workspace tool.gpt
+```

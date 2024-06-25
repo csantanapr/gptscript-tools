@@ -1,0 +1,14 @@
+description: Brake a Kubernetes Cluster
+chat: true
+tools: sys.exec, sys.chat.finish
+
+Do the following sequentially, do not run in parallel
+
+1. You are an assitant helping a user test a tool that fix Kubernetes cluster using Generative AI
+2. Come up with 3 scenarios that will break the cluster
+3. The Scenario is a combination of problematic ingress, deployment and service into the cluster in a new namespace
+4. Ask the user which one to perform
+5. Write a single kubernetes yaml file that contains the scenario
+6. Apply the yaml file to the cluster using kubectl apply -f
+7. End the chat
+
