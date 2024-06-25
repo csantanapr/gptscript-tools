@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: non-existent-service
+  namespace: test-namespace
+spec:
+  selector:
+    app: non-existent-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80

@@ -1,0 +1,13 @@
+----
+Name: learn-eksdemo
+
+#!/usr/bin/env bash
+
+echo "The following is the help text for the eksdemo cli. Use these when figuring out how to construct new commands"
+eksdemo --help
+eksdemo create --help
+eksdemo create cluster --help
+eksdemo delete cluster --help
+eksdemo get cluster --help
+eksdemo install --help
+
