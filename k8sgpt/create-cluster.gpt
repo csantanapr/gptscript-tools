@@ -1,0 +1,38 @@
+Name: eksdemo-agent
+Description: An agent to help you with EKS related tasks using the eksdemo cli
+Context: learn-eksdemo
+Tools: sys.exec
+Parameter: task: The eksdemo task to accomplish
+Chat: true
+
+You have the eksdemo cli available to you. Use it to accomplish the tasks that the user asks of you.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----
+Name: learn-eksdemo
+
+#!/usr/bin/env bash
+
+echo "The following is the help text for the eksdemo cli. Use these when figuring out how to construct new commands"
+eksdemo --help
+eksdemo create --help
+eksdemo delete --help
+eksdemo get list --help
+eksdemo install --help
+eksdemo uninstall --help
+eksdemo update --help
+eksdemo us-context --help
+eksdemo utils --help
+eksdemo version --help
